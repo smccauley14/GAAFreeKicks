@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour
     public Transform ball;
     private Vector3 offset = new Vector3(5f, -0.28f, 5f);
     public bool isMoving;
-    private float moveSpeed = 5f;
+    private float moveSpeed = 3f;
     public Animator animator;
 
     private void Start()
@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
             transform.position = ball.position + offset;
             animator.SetBool("Run", false);
+            animator.SetBool("Kick", false);
         }
     }
 
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
             if (distance <= 0.1f)
             {
                 animator.SetBool("Run", false);
+                animator.SetBool("Kick", true);
                 isMoving = false;
             }
             else

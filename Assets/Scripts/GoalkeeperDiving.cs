@@ -15,6 +15,8 @@ public class GoalkeeperDiving : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Test");
+        Debug.Log(other.tag);
         if (other.CompareTag("Ball") && !hasAnimationPlayed)
         {
             // Trigger the animation based on the child's tag
@@ -23,6 +25,7 @@ public class GoalkeeperDiving : MonoBehaviour
             switch (childTag)
             {
                 case "BottomLeft":
+                    Debug.Log("Dive bottom left");
                     animator.SetBool("BottomLeft", true);
                     break;
 
